@@ -1,7 +1,4 @@
-Angular Shopping Cart Demo
+Item Manager
 ==========================
 
-This is a demo of an scalable Angular Application.
-
-
-TBD: better documentation how is built and basics, more info, read code, I'm still adding components
+Program Test Wallapop
