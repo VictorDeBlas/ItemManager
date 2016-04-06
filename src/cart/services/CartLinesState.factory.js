@@ -10,13 +10,12 @@
 module.exports = CartLinesStateFactory;
 
 /* @ngInject */
-function CartLinesStateFactory(CartLine, drpxUpdateable) {
+function CartLinesStateFactory(CartLine) {
 	var state = {
 		list: [],
 		map: {},
 		getOrCreate: getOrCreate,//(product): CartLine
 		isBought: isBought,//(product): boolean
-		$update: drpxUpdateable('scd.cartLinesUpdate'),
 	};
 	return state;
 

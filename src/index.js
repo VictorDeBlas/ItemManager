@@ -2,12 +2,12 @@
 
 var angular = require('angular');
 
-module.exports = angular.module('shoppingCartDemoApp', [
+module.exports = angular.module('itemManager', [
 
-	require('./cart'),
-	require('./cart-summary'),
-	require('./products'),
-	require('./products-catalog'),
+	//require('./cart'),
+	//require('./cart-summary'),
+	//require('./products'),
+	//require('./products-catalog'),
 
 	require('angular-route'),
 ])
@@ -15,7 +15,7 @@ module.exports = angular.module('shoppingCartDemoApp', [
 .config(function($routeProvider) {
 
 	$routeProvider.otherwise({
-		redirectTo: '/catalog',
+		redirectTo: '/itemList'
 	});
 })
 

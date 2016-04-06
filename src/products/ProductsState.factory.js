@@ -9,12 +9,11 @@
 module.exports = ProductsStateFactory;
 
 /* @ngInject */
-function ProductsStateFactory(Product, drpxUpdateable) {
+function ProductsStateFactory(Product) {
 	var state = {
 		list: [],
 		map: {},
-		deserializeAll: deserializeAll,//()
-		$update: drpxUpdateable('scd.productsUpdate'),
+		deserializeAll: deserializeAll
 	};
 	return state;
 
