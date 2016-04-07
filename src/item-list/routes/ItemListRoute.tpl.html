@@ -1,0 +1,11 @@
+<div class="row">
+
+	<h1>Item List</h1>
+
+	<div ng-repeat="item in vm.items">
+		<span>{{item.title}}</span>
+	</div>
+
+	<button ng-click="vm.loadMore()">View More</button>
+	
+</div>
