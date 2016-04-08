@@ -6,6 +6,7 @@ module.exports = angular.module('item-manager.item-list', [
 
 	require('./services'),
 	require('./routes'),
+	require('./components')
 ])
 
 .name;

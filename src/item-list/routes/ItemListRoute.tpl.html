@@ -1,9 +1,15 @@
 <div class="row">
 
 	<h1>Item List</h1>
+	<label>Filter: <input ng-model="vm.searchText"></label>
+	<button ng-click="vm.orderCriteria = 'title'">Order by Title</button>
+	<button ng-click="vm.orderCriteria = 'description'">Order by Description</button>
+	<button ng-click="vm.orderCriteria = 'price'">Order by Price</button>
+	<button ng-click="vm.orderCriteria = 'email'">Order by Email</button>
+	<button ng-click="vm.orderCriteria = undefined">Unorderd</button>
 
-	<div ng-repeat="item in vm.items">
-		<span>{{item.title}}</span>
+	<div ng-repeat="item in vm.items | filter: vm.searchText | orderBy: vm.orderCriteria">
+		<il-item item="item"></il-item>
 	</div>
 
 	<button ng-click="vm.loadMore()">View More</button>
