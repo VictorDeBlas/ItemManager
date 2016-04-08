@@ -1,17 +1,25 @@
-<div class="row">
+<div class="item-list">
 
 	<h1>Item List</h1>
-	<label>Filter: <input ng-model="vm.searchText"></label>
-	<button ng-click="vm.orderCriteria = 'title'">Order by Title</button>
-	<button ng-click="vm.orderCriteria = 'description'">Order by Description</button>
-	<button ng-click="vm.orderCriteria = 'price'">Order by Price</button>
-	<button ng-click="vm.orderCriteria = 'email'">Order by Email</button>
-	<button ng-click="vm.orderCriteria = undefined">Unorderd</button>
 
-	<div ng-repeat="item in vm.items | filter: vm.searchText | orderBy: vm.orderCriteria">
-		<il-item item="item"></il-item>
+	<label class="filter-title">Filter: <input class="filter-input" ng-model="vm.searchText"></label>
+
+	<button class="favorite-list custom-button" ng-click="vm.openFavoriteList()" ng-disabled="vm.favoriteItems.length < 1" ng-class="{'disabled': vm.favoriteItems.length < 1}">Open Favorite List</button>
+
+	<div class="order-buttons">
+		<button class="custom-button" ng-click="vm.orderCriteria = 'title'">Order by Title</button>
+		<button class="custom-button" ng-click="vm.orderCriteria = 'description'">Order by Description</button>
+		<button class="custom-button" ng-click="vm.orderCriteria = 'price'">Order by Price</button>
+		<button class="custom-button" ng-click="vm.orderCriteria = 'email'">Order by Email</button>
+		<button class="custom-button" ng-click="vm.orderCriteria = undefined">Unordered</button>
 	</div>
 
-	<button ng-click="vm.loadMore()">View More</button>
+	
+
+	<div ng-repeat="item in vm.items | filter: vm.searchText | orderBy: vm.orderCriteria">
+		<il-item item="item" ng-click="vm.toggleFavorite(item)" is-favorite="item.isFavorite"></il-item>
+	</div>
+
+	<button class="custom-button load-more" ng-click="vm.loadMore()" ng-disabled="!vm.loadMorePagesAvailable" ng-class="{'disabled': !vm.loadMorePagesAvailable}">View More</button>
 	
 </div>

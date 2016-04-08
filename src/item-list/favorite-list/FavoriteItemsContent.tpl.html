@@ -1,0 +1,5 @@
+<h5 class="">My Favorites</h5>
+<label>Filter: <input ng-model="vm.searchText.title"></label>
+<div ng-repeat="item in vm.favoriteItems | filter: vm.searchText:strict">
+	<il-item item="item" is-favorite="item.isFavorite" ng-click="vm.deleteFromFavorites(item)"></il-item>
+</div>

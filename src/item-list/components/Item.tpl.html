@@ -1,9 +1,12 @@
-<div>
-  <div>
-    <img ng-src="/src/item-list/components/images/{{vm.item.image}}">
-    <span>{{vm.item.title}}</span>
-    <span>{{vm.item.description}}</span>
-    <span>{{vm.item.price}}</span>
-    <span>{{vm.item.email}}</span>
+<div class="item">
+  <div class="fa" ng-class="{'fa-star-o': !vm.isFavorite, 'fa-star': vm.isFavorite}"></div>
+  <div class="item-left">
+    <img class="item-object" ng-src="/src/item-list/components/images/{{vm.item.image}}" alt="{{vm.item.title}}">
+  </div>
+  <div class="item-body">
+    <h4 class="item-heading">Title: {{vm.item.title}}</h4>
+    <p><strong>Description:</strong><span>{{vm.item.description}}</span></p>
+    <p><strong>Price:</strong><span>{{vm.item.price | currency}}</span></p>
+    <p><strong>Email:</strong><span>{{vm.item.email}}</span></p>
   </div>
 </div>

@@ -6,7 +6,8 @@ module.exports = ItemListRemoteFactory;
 function ItemListRemoteFactory($http) {
 	var service = {
 		loadFirstItems: loadFirstItems,
-		loadMoreItems: loadMoreItems
+		loadMoreItems: loadMoreItems,
+		getTotalItems: getTotalItems
 	};
 	return service;
 
@@ -24,6 +25,13 @@ function ItemListRemoteFactory($http) {
 		return $http.get('/src/item-list/services/items.json')
 			.then( function(response) {
 				return response.data.items.slice(startItem, endItem);
+			});
+	}
+
+	function getTotalItems() {
+		return $http.get('/src/item-list/services/items.json')
+			.then( function(response) {
+				return response.data.items.length;
 			});
 	}
 }

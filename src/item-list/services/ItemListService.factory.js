@@ -6,12 +6,14 @@ module.exports = ItemListService;
 function ItemListService(itemListRemote) {
 	var service = {
 		loadFirstItems: loadFirstItems,
-		loadMoreItems:loadMoreItems
+		loadMoreItems:loadMoreItems,
+		getTotalItems: getTotalItems
 	};
 
 	return service;
 
 	//////
+
 
 	function loadFirstItems() {
 
@@ -23,6 +25,13 @@ function ItemListService(itemListRemote) {
 
 	function loadMoreItems(page) {
 		return itemListRemote.loadMoreItems(page)
+			.then( function(response) {
+				return response;
+			});
+	}
+
+	function getTotalItems() {
+		return itemListRemote.getTotalItems()
 			.then( function(response) {
 				return response;
 			});

@@ -11,7 +11,8 @@ function ItemDirective() {
 		controller: ItemController,
 		controllerAs: 'vm',
 		bindToController: {
-			item: '='		
+			item: '=',
+			isFavorite: '='	
 		},
 	};
 	return directive;
